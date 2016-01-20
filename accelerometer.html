@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Device Orientation Test</title>
+    <script type="text/javascript">
+      var nbrEvents = 0;
+      function handler(e) {
+        ++nbrEvents;
+        document.getElementById('alpha').innerHTML = '' + e.alpha;
+        document.getElementById('beta').innerHTML = '' + e.beta;
+        document.getElementById('gamma').innerHTML = '' + e.gamma;
+        document.getElementById('nbr').innerHTML = nbrEvents;
+
+        var rotate = 'rotate(' + (-e.gamma) + 'deg)';
+        var scale = 'scale(' + (1 - e.beta / 180) + ')';
+        var logo = document.getElementById('logo');
+        logo.style.webkitTransform = rotate + ' ' + scale;
+      }
+    </script>
+  </head>
+  <body onload="window.addEventListener('deviceorientation', handler, true)">
+    <img src="http://dev.chromium.org/_/rsrc/1438879449147/config/customLogo.gif?revision=3" id="logo" style="float: right">
+    <h1>Orientation Data</h1>
+    <table>
+      <tr><td>Alpha:</td><td id="alpha">Waiting for event</td></tr>
+      <tr><td>Beta:</td><td id="beta">Waiting for event</td></tr>
+      <tr><td>Gamma:</td><td id="gamma">Waiting for event</td></tr>
+      <tr><td>Number of events:</td><td id="nbr">0</td></tr>
+    </table>
+
+    <h1>Test Procedure</h1>
+    <ul>
+      <li>For a device that cannot provide orientation data:
+      <ul>
+        <li>Alpha, Beta, and Gamma, should all be null</li>
+        <li>Number of events should be exactly 1 (one).</li>
+      </ul></li>
+
+      <li>For a device that provides orientation data (recent MacBook models):
+      <ul>
+        <li>Place the device flat on a table. Alpha should be null, Beta and
+        Gamma should be (close to) zero</li>
+        <li>Tilt the device towards you. The Beta value should increase. The
+        value should be the same as the tilt angle in degrees</li>
+        <li>Tilt the device away from you. The Beta value should decrease. The
+        value should be the same as the negative tilt angle in degrees</li>
+        <li>Lean the device to the right. The Gamma value should increase. The
+        value should be the same as the angle in degrees</li>
+        <li>Lean the device to the left. The Gamma value should decrease. The
+        value should be the same as the negative angle in degrees.</li>
+        <li>Look at the logo in the top-right corner:
+        <ul>
+          <li>When leaning the device to the left, the logo should rotate
+          clockwise</li>
+          <li>When leaning the device to the right, it should rotate
+          counter-clockwise</li>
+          <li>When tilting the device away from you, the logo should grow
+          larger</li>
+          <li>When tilting the device towards you, the logo should grow smaller.</li>
+        </ul></li>
+      </ul></li>
+    </ul>
+    <p>(From <a href="http://code.google.com/p/chromium/issues/detail?id=44654">Chromium bug #44654</a>.)</p>
+</body>
+</html>
