@@ -1,0 +1,17 @@
+<html>
+<head>
+<script>
+function load() {
+  var url = "data:text/html;charset=utf8,hi!";
+  document.getElementById("frame").src = url;
+}
+function push() {
+  window.history.pushState({}, "", "notarealurl.html")
+}
+</script>
+</head>
+<body>
+<iframe id="frame" width=200 height=200></iframe><br>
+<button onclick="load()">Load the frame</button>
+<button onclick="push()">Push a history entry</button>
+</html>
