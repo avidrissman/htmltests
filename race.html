@@ -1,0 +1,13 @@
+<html>
+<head>
+<script>
+function race() {
+  window.document.getElementById("frame").src = "//web.mit.edu/";
+  window.history.pushState({}, "", "notarealurl.html")
+}
+</script>
+</head>
+<body>
+<iframe id="frame" width=200 height=200></iframe><br>
+<button onclick="race()">Start the race</button>
+</html>
