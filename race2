@@ -1,0 +1,9 @@
+<html>
+<head>
+</head>
+<body>
+<iframe id="frame" width=200 height=200 src="//web.mit.edu/"></iframe><br>
+<script>
+window.history.pushState({}, "", "notarealurl.html")
+</script>
+</html>
