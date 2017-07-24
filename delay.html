@@ -1,0 +1,31 @@
+<html>
+<head>
+<script>
+function ti() {
+  window.setTimeout(function() {
+    document.title = Math.random().toString(36).substr(2, 5);
+  }, 2000);
+}
+function al() {
+  window.setTimeout(function() {
+    window.alert("alert");
+  }, 2000);
+}
+function co() {
+  window.setTimeout(function() {
+    window.confirm("confirm");
+  }, 2000);
+}
+function pr() {
+  window.setTimeout(function() {
+    window.prompt("prompt");
+  }, 2000);
+}
+</script>
+</head>
+<body>
+<p><button onclick="ti()">Change the title after a delay</button></p>
+<p><button onclick="al()">Fire an alert dialog after a delay</button></p>
+<p><button onclick="co()">Fire a confirm dialog after a delay</button></p>
+<p><button onclick="pr()">Fire a prompt dialog after a delay</button></p>
+</html>
