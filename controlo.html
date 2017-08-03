@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>
+Innocent webpage
+</title>
+</head>
+<body>
+<p id="instructions">Aren’t you bored? Type command/control-O and open up a new local web page to browse...
+<p>You surely are getting the browser’s open command and not anything under the control of this page...
+<hr>
+<p id="out">
+<input type="file" id="f" accept=".htm, .html" style="display:none;">
+<script>
+function handleKeyDown(evt) {
+  if (evt.key == 'o' &&
+      (evt.ctrlKey || evt.metaKey)) {
+    document.getElementById('f').click();
+  
+    evt.preventDefault();
+  }
+}
+
+function handleFileSelect(evt) {
+  var files = evt.target.files; // FileList object
+  var file = files[0];
+
+  // At this point we can do whatever we want to this file...
+  var reader = new FileReader();
+  reader.onload = (function(file) {
+    return function(e) {
+      var div = document.createElement('div');
+      div.innerHTML = e.target.result;
+      document.getElementById('out').insertBefore(div, null)
+    };
+  })(file);
+  reader.readAsText(file);
+}
+
+document.getElementById('f').addEventListener('change', handleFileSelect, false);
+
+document.addEventListener('keydown', handleKeyDown, false);
+</script>
+</body>
+</html>
