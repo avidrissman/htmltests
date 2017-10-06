@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>
+You can't reload me
+</title>
+</head>
+<body>
+<p id="instructions">Haha try to reload me with command/control-R...
+<hr>
+<p id="failblock" style="color:red;">
+<script>
+function handleKeyDown(evt) {
+  if (evt.key == 'r' &&
+      (evt.ctrlKey || evt.metaKey)) {
+    document.getElementById('failblock').innerHTML = "HAHA! I didn't reload";
+  
+    evt.preventDefault();
+  }
+}
+
+document.addEventListener('keydown', handleKeyDown, false);
+</script>
+</body>
+</html>
