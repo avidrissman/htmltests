@@ -1,0 +1,13 @@
+<html>
+<!-- from http://popuptest.com/popuptest1.html -->
+<head>
+<script>
+function popup(url, name) {
+window.open(url, name, 'resizeable=no,scrollbars=no,width=600,height=130,innerWidth=600,innerHeight=130,titlebar=no,screenX=5,screenY=600,left=5,top=600');
+}
+</script>
+</head>
+<body onbeforeunload="popup('http://www.popuptest.com/popup7.html', '_blank');return ''" onunload="popup('http://www.popuptest.com/popup8.html', '_8')">
+Popup blocker test.
+</body>
+</html>
