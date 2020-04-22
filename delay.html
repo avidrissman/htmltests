@@ -21,6 +21,11 @@ function pr() {
     window.prompt("prompt");
   }, 2000);
 }
+function print() {
+  window.setTimeout(function() {
+    window.print();
+  }, 2000);
+}
 </script>
 </head>
 <body>
@@ -28,4 +33,5 @@ function pr() {
 <p><button onclick="al()">Fire an alert dialog after a delay</button></p>
 <p><button onclick="co()">Fire a confirm dialog after a delay</button></p>
 <p><button onclick="pr()">Fire a prompt dialog after a delay</button></p>
+<p><button onclick="print()">Fire a print dialog after a delay</button></p>
 </html>
