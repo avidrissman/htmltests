@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>Hang in there</title>
+<script>
+function hangforever() {
+  while (true) ;
+}
+function hang(l) {
+  var n = Date.now();
+  while (Date.now() < n + l*1000) ;
+}
+</script>
+</head>
+<body>
+<p><button onclick="hang(0)">Hang forever</button></p>
+<p><button onclick="hang(10)">Hang for 10s</button></p>
+<p><button onclick="hang(20)">Hang for 20s</button></p>
+<p><button onclick="hang(30)">Hang for 30s</button></p>
+<p><button onclick="hang(40)">Hang for 40s</button></p>
+<p><button onclick="hang(50)">Hang for 50s</button></p>
+<p><button onclick="hang(60)">Hang for 60s</button></p>
+</html>
